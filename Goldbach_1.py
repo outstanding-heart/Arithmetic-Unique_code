@@ -1,7 +1,8 @@
-#
 # Author: Lee.HJ
 # Create time: 11/23/2014
 # Description: To prove the Goldbach that every even number which is bigger than four is equal that two prime numbers to add.
+
+# !/usr/bin/env python
 
 def Prime_number(Min, Max):
 	word = []
