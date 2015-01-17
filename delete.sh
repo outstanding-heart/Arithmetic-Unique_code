@@ -1,9 +1,7 @@
-#!/bin/bash
-
-#if [ ! -d ~/.trash ]
-#then
-#	mkdir ~/.trash
-#fi
+# !/bin/bash
+# File Name: delete
+# Author: Lee.HJ
+# Describtion: A script file that move the file or dictionary to trash box
 
 if [ $# -eq 0 ]
 then

@@ -1,4 +1,7 @@
-#!/bin/bash
+# !/bin/bash
+# File name: Vim.sh
+# Author: Lee.HJ
+# Description: A strengthen vim~~~
 
 filename=$@
 time=$(date)
