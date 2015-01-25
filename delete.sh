@@ -1,7 +1,7 @@
-# !/bin/bash
-# File Name: delete
+#!/bin/bash
+# File name: delete
 # Author: Lee.HJ
-# Describtion: A script file that move the file or dictionary to trash box
+# Description: A script file that move the file or dictionary to trash box
 
 if [ $# -eq 0 ]
 then
@@ -10,7 +10,7 @@ else
 	echo " You are about to delete these files:"
 	echo $@
 	echo -n "Are you sure to do that?[Y/n]"
-	read reply
+	read -n 1 reply
 
 	if [ "$reply" != "n" ] && [ "$reply" != "N" ]
 	then 
@@ -18,13 +18,7 @@ else
 		do
 			if [ -f "$file" ] || [ -d "$file" ]
 			then
-				mv -r -b "$file" ~/.local/share/Trash/files  # ~/.trash/
-				touch ~/.local/share/Trash/info/$file.trashinfo
-				echo "`pwd $file.trashinfo`"
-				echo "[Trash Info]" >$file.trashinfo
-				echo "Path=`pwd`/$file" >>$file.trashinfo
-				echo "DeletionDate=`date`" >>$file.trashinfo
-#				mv -b "$file.trashinfo" ~/.local/share/Trash/info
+				mv "$file" ~/.Trash  # ~/.trash/
 			else
 				echo "$file : No such file or directory"
 			fi
