@@ -19,6 +19,7 @@ else
 			if [ -f "$file" ] || [ -d "$file" ]
 			then
 				mv "$file" ~/.Trash  # ~/.trash/
+				printf "\n****$file has been removed to trash box!****"
 			else
 				echo "$file : No such file or directory"
 			fi
@@ -26,4 +27,5 @@ else
 	else
 		echo "No file removed"
 	fi
+	printf "\n"
 fi
