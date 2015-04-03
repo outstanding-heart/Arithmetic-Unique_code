@@ -15,27 +15,23 @@ else
 	
 	Type=${filename##*.}
 
-	#oldIFS=$IFS;
-	#IFS="."
-	#count=0
-	#for item in $filename;
-	#do
-	#	filedata[count]=$item;
-	#	let count++
-	#done;
-	#IFS=$oldIFS
-
-	#length=${#filedata[@]}
-	#let length--
-
-	if [ $Type == "c" ];
+	if [ $Type == "c" ] || [ $Type == "h" ];
 
 	then
-		echo "/********************************************/" > $filename
+		echo "/* ----------------------------------------------------- */" > $filename
 		echo "/* Filename: $filename */" >> $filename
 		echo "/* Author: Lee.HJ */" >> $filename
-		echo "/* Time: $time */" >>$filename
-		echo "/********************************************/" >> $filename
+		echo "/* Time: $time */" >> $filename
+		echo "/* Describtion:  */" >> $filename
+		echo "/* ----------------------------------------------------- */" >> $filename
+		printf "\n" >> $filename
+		echo "/* Include --------------------------------------------- */" >> $filename
+		printf "\n" >> $filename
+		echo "/* Private define -------------------------------------- */" >> $filename
+		printf "\n" >> $filename
+		echo "/* Private typedef ------------------------------------- */" >> $filename
+		printf "\n" >> $filename
+		echo "/* Private variables ----------------------------------- */" >> $filename
 		printf "\n\n" >> $filename
 		
 	elif [ $Type == "sh" ];
@@ -45,6 +41,7 @@ else
 		echo "# Author: Lee.HJ" >> $filename
 		echo "# Time: $time" >>$filename
 		printf "\n\n" >> $filename
+	
 	elif [ $Type == "py" ];
 	then
 		echo "# !/bin/bash" > $filename
@@ -52,6 +49,15 @@ else
 		echo "# Author: Lee.HJ" >> $filename
 		echo "# Time: $time" >>$filename
 		printf "\n\n" >> $filename
+	
+	else
+		echo "/********************************************/" > $filename
+		echo "/* Filename: $filename */" >> $filename
+		echo "/* Author: Lee.HJ */" >> $filename
+		echo "/* Time $time  */" >> $filename
+		echo "/********************************************/" >> $filename
+		printf "\n\n" >> $filename
+
 	fi
 
 	vim $filename
